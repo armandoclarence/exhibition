@@ -36,8 +36,9 @@
   color: #515151;
 }
 
-#login h1 {
+.signForm h1 {
   margin-bottom: 50px;
+  font-size: 2.5em;
 }
 
 .signForm h1,.signForm > p > a {
@@ -91,7 +92,6 @@
 
 .signForm button {
   color:white;
-  font-size: large;
   background-image: linear-gradient(95.55deg, #9CA6FA 3%, #AB52DF 109.14%);
 }
 
