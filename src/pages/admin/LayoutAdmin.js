@@ -2,6 +2,7 @@ import React from 'react'
 import {NavLink, Outlet} from 'react-router-dom'
 import Bending from '../../assets/img/Bending.svg'
 import Approved from '../../assets/img/Approved.svg'
+import '../../styles/admin/admin.css'
 
 function LayoutAdmin() {
   return (
@@ -13,13 +14,14 @@ function LayoutAdmin() {
         <nav>
           <ul className='flex space-x-4'>
             <li>
-              <NavLink to='bending' className={`${(isActive)=> isActive && 'text-gray-100 bg-gray-900'} flex items-center space-x-2 text-gray-900 hover:invert hover:text-gray-100 hover:bg-gray-900`}>
+              <NavLink to='bending' className={`flex items-center space-x-2 text-gray-900`}>
                 <img src={Bending} alt='bending' className={`w-6 h-6`} />
                 <span>Bending Exhibitor</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to='approved' className={`${(isActive)=> isActive && 'text-gray-100 bg-gray-900'} flex items-center space-x-2 text-gray-900 hover:invert hover:text-gray-100 hover:bg-gray-900`}>
+              <NavLink to='approved' className={`flex items-center space-x-2 text-gray-900`}
+              >
                 <img src={Approved} alt='approved' className={`w-6 h-6`} />
                 <span>Approved Exhibitor</span>
               </NavLink>

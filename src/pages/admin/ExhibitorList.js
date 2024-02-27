@@ -8,7 +8,7 @@ const ExhibitorList = () =>{
             "lastname": "Graham",
             "email": "alexanderg292@gmail.com",
             "mobile": "081528378712",
-            "status": "Approved",
+            "status": "UU",
             "user_type_id": 2
         },
         {
@@ -16,7 +16,7 @@ const ExhibitorList = () =>{
             "lastname": "Prince",
             "email": "nikkip62@gmail.com",
             "mobile": "081523278795",
-            "status": "Approved",
+            "status": "UU",
             "user_type_id": 2
         },
         {
@@ -24,7 +24,7 @@ const ExhibitorList = () =>{
             "lastname": "Graham",
             "email": "johng22@gmail.com",
             "mobile": "08152838391",
-            "status": "Approved",
+            "status": "UU",
             "user_type_id": 2
         },
     ]
@@ -55,7 +55,6 @@ const ExhibitorList = () =>{
                     </tbody>
                 </table>
             </div>
-            
         </div>
     )
 }
