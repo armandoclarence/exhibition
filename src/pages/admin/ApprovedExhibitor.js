@@ -1,34 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Exhibitor from './Exhibitor.js';
+import { fetchApprovedExhibitors } from './service/approvedService.js';
 
-const ExhibitorList = () =>{
-    const exhibitors = [
-        {
-            "firstname": "Alexander",
-            "lastname": "Graham",
-            "email": "alexanderg292@gmail.com",
-            "mobile": "081528378712",
-            "status": "UU",
-            "user_type_id": 2
-        },
-        {
-            "firstname": "Nikki",
-            "lastname": "Prince",
-            "email": "nikkip62@gmail.com",
-            "mobile": "081523278795",
-            "status": "UU",
-            "user_type_id": 2
-        },
-        {
-            "firstname": "John",
-            "lastname": "Graham",
-            "email": "johng22@gmail.com",
-            "mobile": "08152838391",
-            "status": "UU",
-            "user_type_id": 2
-        },
-    ]
-    
+const ExhibitorList = () => {
+    const [exhibitors, setExhibitors] = useState([]);
+
+    useEffect(() => {
+        fetchApprovedExhibitors().then(data => setExhibitors(data));
+    }, []);
+
     return (
         <div className='container m-auto my-8'>
             <div className='flex shadow border-b'>
@@ -50,7 +30,7 @@ const ExhibitorList = () =>{
                     </thead>
                     <tbody className='bg-white'>
                         { exhibitors.map((exhibitor) => (
-                            <Exhibitor exhibitor ={exhibitor} key={exhibitor.mobile}/>
+                            <Exhibitor exhibitor={exhibitor} key={exhibitor.id}/>
                         ))}
                     </tbody>
                 </table>
@@ -60,4 +40,3 @@ const ExhibitorList = () =>{
 }
 
 export default ExhibitorList 
-

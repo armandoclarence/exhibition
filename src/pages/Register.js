@@ -1,42 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/login.css'
 import '../styles/register.css'
 import passwordHide from '../assets/img/password-hide.png'
+import { registerUser } from './registerService.js';
 
 function Register() {
+  const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    mobile: "",
+    password: "",
+    user_type_id: 0
+    });
+
+    const handleChange = (e) => {
+      if (e.target.id === 'exhibitor') {
+          setUser({
+              ...user,
+              user_type_id: 2
+          });
+      } else if (e.target.id === 'user') {
+          setUser({
+              ...user,
+              user_type_id: 3
+          });
+      } else {
+          setUser({
+              ...user,
+              [e.target.id]: e.target.value
+          });
+      }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    registerUser(user).then(data => console.log(data));
+  };
+
   return (
-    <div className='loginPage'>
-      <div className='wave'></div>
-      <div className='sign-in'>
-        <form id='signup' className='signForm'>
-          <h1>Sign Up</h1>
-          <div className='login-input'>
-            <div className='username'>
-              <input type='text' id='fname' placeholder='First Name' />
-              <input type='text' id='lname' placeholder='Last Name' />
-            </div>
-            <input type='tel' id='mobile' placeholder='Mobile' />
-            <input type='email' id='email' placeholder='Email' />
-            <div className='pass'>
-              <input id='password' type='password' placeholder='Password' />
-              <img src={passwordHide} alt='invisible' />
-            </div>
-            <div className='type-acc'>
-              <div className='exhibitor'>
-                <input type='radio' name='typeAcc' id='exhibitor' />
-                <label htmlFor='exhibitor'>Exhibitor</label>
-              </div>
-              <div className='user'>
-                <input type='radio' name='typeAcc' id='user' />
-                <label htmlFor='user'>User</label>
-              </div>
-            </div>
+    // ...
+    <form id='signup' className='signForm' onSubmit={handleSubmit}>
+      <h1>Sign Up</h1>
+      <div className='login-input'>
+        <div className='username'>
+          <input type='text' id='firstname' placeholder='First Name' onChange={handleChange} />
+          <input type='text' id='lastname' placeholder='Last Name' onChange={handleChange} />
+        </div>
+        <input type='tel' id='mobile' placeholder='Mobile' onChange={handleChange} />
+        <input type='email' id='email' placeholder='Email' onChange={handleChange} />
+        <div className='pass'>
+          <input id='password' type='password' placeholder='Password' onChange={handleChange} />
+          <img src={passwordHide} alt='invisible' />
+        </div>
+        <div className='type-acc'>
+        <div className='exhibitor'>
+           <input type='radio' name='typeAcc' id='exhibitor' onChange={handleChange} />
+          <label htmlFor='exhibitor'>Exhibitor</label>
           </div>
-          <button type='submit'>Sign Up</button>
-          <p>Already have an account? <a href='/'>Login</a></p>
-        </form>
-      </div>
+        <div className='user'>
+          <input type='radio' name='typeAcc' id='user' onChange={handleChange} />
+          <label htmlFor='user'>User</label>
     </div>
+        </div>
+      </div>
+      <button type='submit'>Sign Up</button>
+      <p>Already have an account? <a href='/'>Login</a></p>
+    </form>
+    // ...
   )
 }
 

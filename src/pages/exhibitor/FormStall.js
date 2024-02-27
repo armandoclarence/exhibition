@@ -2,7 +2,7 @@ import React from 'react'
 
 function FormStall() {
   return (
-    <form className='bg-black flex flex-col text-white space-y-2 w-full mx-auto p-20'>
+    <form className=' border-blue-50 flex flex-col text-black space-y-2 w-full mx-auto p-20'>
       <label htmlFor="name">Stall Name</label>
       <input type="text" id='name' name='name' placeholder='Stall Name' />
       <label htmlFor="desc">Stall Description</label>
