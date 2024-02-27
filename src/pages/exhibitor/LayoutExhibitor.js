@@ -1,5 +1,5 @@
 import React from 'react'
-import {LiaEdit, LiaCheckSquare } from 'react-icons/lia'
+import {LiaEdit} from 'react-icons/lia'
 import {NavLink, Outlet} from 'react-router-dom'
 
 function LayoutExhibitor() {
@@ -18,11 +18,7 @@ function LayoutExhibitor() {
               </NavLink>
             </li>
             <li>
-              <NavLink to='editStall' className={`flex items-center space-x-2 text-gray-900`}
-              >
-                <LiaCheckSquare className='w-6 h-6' />
-                <span>Edit Stall</span>
-              </NavLink>
+           
             </li>
           </ul>
         </nav>
