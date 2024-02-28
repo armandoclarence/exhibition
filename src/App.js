@@ -5,10 +5,11 @@ import Register from './pages/Register';
 import BendingExhibitor from './pages/admin/BendingExhibitor';
 import ApprovedExhibitor from './pages/admin/ApprovedExhibitor';
 import LayoutAdmin from './pages/admin/LayoutAdmin';
-import CreateStall from './pages/exhibitor/CreateStall';
-
 import LayoutExhibitor from './pages/exhibitor/LayoutExhibitor';
-import StallList from './pages/user/listofStalls';
+import CreateStall from './pages/exhibitor/CreateStall';
+import EditStall from './pages/exhibitor/EditStall'
+import LayoutUser from './pages/user/LayoutUser'
+import StallList from './pages/user/StallList';
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
           </Route>
           <Route path='/exhibitor' element={<LayoutExhibitor />}>
             <Route path='createStall' element={<CreateStall />} />
+            <Route path='editStall' element={<EditStall />} />
           </Route>
 
-          <Route>
-            <Route path='/stall' element={<StallList/>} />
+          <Route path='/stall' element={<LayoutUser />}>
+            <Route path=':id' element={<StallList/>} />
           </Route>
         </Routes>
       </Router>
