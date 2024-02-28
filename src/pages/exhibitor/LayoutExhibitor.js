@@ -1,10 +1,10 @@
 import React from 'react'
-import {LiaEdit, LiaCheckSquare } from 'react-icons/lia'
+import {LiaEdit, LiaPenSolid} from 'react-icons/lia'
 import {NavLink, Outlet} from 'react-router-dom'
 
 function LayoutExhibitor() {
   return (
-    <div className='flex flex-col h-screen bg-gray-100'>
+    <div className='flex flex-col h-full bg-gray-100'>
       <header className='flex items-center justify-between p-6 bg-white border-b border-gray-200'>
         <div>
           <h1 className='text-lg font-bold'>Admin1.</h1>
@@ -18,9 +18,8 @@ function LayoutExhibitor() {
               </NavLink>
             </li>
             <li>
-              <NavLink to='editStall' className={`flex items-center space-x-2 text-gray-900`}
-              >
-                <LiaCheckSquare className='w-6 h-6' />
+              <NavLink to='editStall' className={`flex items-center space-x-2 text-gray-900`}>
+                <LiaPenSolid className='w-6 h-6' />
                 <span>Edit Stall</span>
               </NavLink>
             </li>

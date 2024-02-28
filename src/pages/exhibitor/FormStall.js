@@ -1,21 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-function FormStall() {
+function FormStall({handleSubmit = '', handleChange = '', stall}) {
   return (
-    <form className=' border-blue-50 flex flex-col text-black space-y-2 w-full mx-auto p-20'>
-      <label htmlFor="name">Stall Name</label>
-      <input type="text" id='name' name='name' placeholder='Stall Name' />
-      <label htmlFor="desc">Stall Description</label>
-      <textarea id='desc' name="desc" cols="30" rows="10" placeholder='Stall Description' />
+    <form onSubmit={handleSubmit} className='h-full border-blue-50 flex flex-col text-black space-y-2 w-full mx-auto p-20'>
+      <label htmlFor="stallName">Stall Name</label>
+      <input value={stall?.stallName || ''} type="text" id='stallName' name='stallName' placeholder='Stall Name' onChange={handleChange} />
+      <label htmlFor="stallDescription">Stall Description</label>
+      <textarea value={stall?.stallDescription || ''} id='stallDescription' name="stallDescription" cols="30" rows="10" placeholder='Stall Description' onChange={handleChange} />
       <label htmlFor="photoUrl">Photo URL</label>
-      <input type="text" id='photoUrl' name='photoUrl' placeholder='Photo URL' />
+      <input value={stall?.photoUrl || ''} type="text" id='photoUrl' name='photoUrl' placeholder='Photo URL' onChange={handleChange} />
       <label htmlFor="videoUrl">Video URL</label>
-      <input type="text" id='videoUrl' name='videoUrl' placeholder='Video URL' />
-      <label htmlFor="brochureUrl">Brouchure URL</label>
-      <input type="text" id='brochureUrl' name='brochureUrl' placeholder='Brochure URL' />
-      <input type="button" value="Submit" className='bg-green-500 mx-auto p-2 text-white' />
+      <input value={stall?.videoUrl || ''} type="text" id='videoUrl' name='videoUrl' placeholder='Video URL' onChange={handleChange} />
+      <label htmlFor="brochureUrl">Brochure URL</label>
+      <input value={stall?.brochureUrl || ''} type="text" id='brochureUrl' name='brochureUrl' placeholder='Brochure URL' onChange={handleChange} />
+      <input type="submit" value="Submit" className='bg-green-500 mx-auto p-2 text-white' />
     </form>
   )
 }
 
-export default FormStall
+export default FormStall;
