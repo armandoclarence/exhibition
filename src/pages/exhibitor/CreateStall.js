@@ -9,7 +9,7 @@ function CreateStall() {
     videoUrl: '',
     brochureUrl: ''
   });
-
+  
   const handleChange = (e) => {
     setForm({
       ...form,

@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink, Outlet} from 'react-router-dom'
+import {NavLink, Link, Outlet} from 'react-router-dom'
 import Bending from '../../assets/img/Bending.svg'
 import Approved from '../../assets/img/Approved.svg'
 import '../../styles/admin/admin.css'
@@ -25,6 +25,11 @@ function LayoutAdmin() {
                 <img src={Approved} alt='approved' className={`w-6 h-6`} />
                 <span>Approved Exhibitor</span>
               </NavLink>
+            </li>
+            <li>
+              <Link to='/'>
+                Logout
+              </Link>
             </li>
           </ul>
         </nav>
