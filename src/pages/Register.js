@@ -44,24 +44,24 @@ function Register() {
       <h1>Sign Up</h1>
       <div className='login-input'>
         <div className='username'>
-          <input type='text' id='firstname' placeholder='First Name' onChange={handleChange} />
-          <input type='text' id='lastname' placeholder='Last Name' onChange={handleChange} />
+          <input type='text' id='firstname' placeholder='First Name' onChange={handleChange} required />
+          <input type='text' id='lastname' placeholder='Last Name' onChange={handleChange} required />
         </div>
-        <input type='tel' id='mobile' placeholder='Mobile' onChange={handleChange} />
-        <input type='email' id='email' placeholder='Email' onChange={handleChange} />
+        <input type='tel' id='mobile' placeholder='Mobile' onChange={handleChange} required />
+        <input type='email' id='email' placeholder='Email' onChange={handleChange} required />
         <div className='pass'>
-          <input id='password' type='password' placeholder='Password' onChange={handleChange} />
+          <input id='password' type='password' placeholder='Password' onChange={handleChange} required />
           <img src={passwordHide} alt='invisible' />
         </div>
         <div className='type-acc'>
         <div className='exhibitor'>
-           <input type='radio' name='typeAcc' id='exhibitor' onChange={handleChange} />
+          <input type='radio' name='typeAcc' id='exhibitor' onChange={handleChange} required />
           <label htmlFor='exhibitor'>Exhibitor</label>
           </div>
         <div className='user'>
-          <input type='radio' name='typeAcc' id='user' onChange={handleChange} />
+          <input type='radio' name='typeAcc' id='user' onChange={handleChange} required />
           <label htmlFor='user'>User</label>
-    </div>
+        </div>
         </div>
       </div>
       <button type='submit'>Sign Up</button>

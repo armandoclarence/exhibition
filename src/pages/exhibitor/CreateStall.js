@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import FormStall from './FormStall'
 
 function CreateStall() {
+  const [data, setData] = useState('');
   const [form, setForm] = useState({
     stallName: '',
     stallDescription: '',
@@ -32,8 +33,9 @@ function CreateStall() {
       })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => setData(data.responseMessage))
     .catch(error => console.error('Error:', error));
+    window.alert(`${data}`)
   }
   return (
     <div>
