@@ -27,7 +27,7 @@ function CreateStall() {
       body: JSON.stringify({
         ...form,
         user: {
-          id: 2// This is the id of the user associated with the stall
+          id: 354 // This is the id of the user associated with the stall
         }
       })
     })
