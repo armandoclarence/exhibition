@@ -1,13 +1,18 @@
-import React from 'react'
 import {LiaEdit, LiaPenSolid} from 'react-icons/lia'
 import {NavLink, Link, Outlet} from 'react-router-dom'
+import React, { useContext } from 'react';
+import UserContext from '../../UserContext';
 
 function LayoutExhibitor() {
+  
+    const user = useContext(UserContext);
+    
+
   return (
     <div className='flex flex-col h-full bg-gray-100'>
       <header className='flex items-center justify-between p-6 bg-white border-b border-gray-200'>
         <div>
-          <h1 className='text-lg font-bold'>Exhibitor.</h1>
+        <h1 className='text-lg font-bold'>{user ? user.sub : 'Loading...'}</h1>
         </div>
         <nav>
           <ul className='flex space-x-4'>
