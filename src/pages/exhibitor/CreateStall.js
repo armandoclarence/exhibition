@@ -1,7 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import FormStall from './FormStall'
+import {Exhibitor} from './LayoutExhibitor'
 
 function CreateStall() {
+
+const stall = useContext(Exhibitor)
   const [data, setData] = useState('');
   const [form, setForm] = useState({
     stallName: '',
@@ -28,7 +31,7 @@ function CreateStall() {
       body: JSON.stringify({
         ...form,
         user: {
-          id: 354 // This is the id of the user associated with the stall
+          id: stall.id  // This is the id of the user associated with the stall
         }
       })
     })

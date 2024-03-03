@@ -1,18 +1,24 @@
 import {LiaEdit, LiaPenSolid} from 'react-icons/lia'
 import {NavLink, Link, Outlet} from 'react-router-dom'
-import React, { useContext } from 'react';
-import UserContext from '../../UserContext';
+import { jwtDecode } from 'jwt-decode';
+import useLocalStorage from '../../util/useLocalStorage';
+import { createContext } from 'react';
 
-function LayoutExhibitor() {
-  
-    const user = useContext(UserContext);
-    
-
+export const Exhibitor = createContext('')
+function LayoutExhibitor() {   
+  const [token, setToken] = useLocalStorage('', 'jwt');
+  const decrypted = jwtDecode(token);
+  console.log("Decrypted in LayoutExhibitor" + decrypted);
+  console.log(token)
+  const removeJWT = () => {
+    window.localStorage.removeItem('jwt')
+  }
+  console.log(token)
   return (
     <div className='flex flex-col h-full bg-gray-100'>
       <header className='flex items-center justify-between p-6 bg-white border-b border-gray-200'>
         <div>
-        <h1 className='text-lg font-bold'>{user ? user.sub : 'Loading...'}</h1>
+        <h1 className='text-lg font-bold'>{decrypted.sub}</h1>
         </div>
         <nav>
           <ul className='flex space-x-4'>
@@ -29,14 +35,16 @@ function LayoutExhibitor() {
               </NavLink>
             </li>
             <li>
-              <Link to='/'>
+              <Link to='/' onClick={removeJWT}>
                 Logout  
               </Link>
             </li>
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <Exhibitor.Provider value={decrypted}>
+        <Outlet />
+      </Exhibitor.Provider>
     </div>
   )
 }

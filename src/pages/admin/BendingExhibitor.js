@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useContext } from 'react';
 import Exhibitor from './Exhibitor.js';
 import { fetchBendingExhibitors } from './service/bendingService.js';
 
-const BendingExhibitor = () => {
-    const [exhibitors, setExhibitors] = useState([]);
 
+const BendingExhibitor = () => {
+  
+    const [exhibitors, setExhibitors] = useState([]);
     useEffect(() => {
         fetchBendingExhibitors().then(data => setExhibitors(data));
     }, []);

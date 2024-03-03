@@ -4,7 +4,7 @@ import { fetchApprovedExhibitors } from './service/approvedService.js';
 
 const ExhibitorList = () => {
     const [exhibitors, setExhibitors] = useState([]);
-
+    
     useEffect(() => {
         fetchApprovedExhibitors().then(data => setExhibitors(data));
     }, []);
