@@ -13,7 +13,12 @@ function Register() {
     password: "",
     user_type_id: 0
     });
-
+    const togglePassword = (e) => {
+      const prevSibling = e.target.previousElementSibling
+      console.log(e)
+      if(prevSibling.type === 'password') prevSibling.type = 'text'
+      else prevSibling.type = 'password'
+    }
     const handleChange = (e) => {
       if (e.target.id === 'exhibitor') {
           setUser({
@@ -51,7 +56,7 @@ function Register() {
         <input type='email' id='email' placeholder='Email' onChange={handleChange} required />
         <div className='pass'>
           <input id='password' type='password' placeholder='Password' onChange={handleChange} required />
-          <img src={passwordHide} alt='invisible' />
+          <img onClick={togglePassword} src={passwordHide} alt='invisible' />
         </div>
         <div className='type-acc'>
         <div className='exhibitor'>

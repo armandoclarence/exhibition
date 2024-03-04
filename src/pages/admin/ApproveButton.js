@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ApproveButton({ email, userId }) {
+  function ApproveButton({ email, userId }) {
   const adminUserId = 1;
 
   function handleClick (e) {

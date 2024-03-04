@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {NavLink, Link, Outlet} from 'react-router-dom'
+import {NavLink,Navigate, Link, Outlet} from 'react-router-dom'
 import Bending from '../../assets/img/Bending.svg'
 import Approved from '../../assets/img/Approved.svg'
 import '../../styles/admin/admin.css'
@@ -16,7 +16,12 @@ function LayoutAdmin() {
   const removeJWT = () => {
     window.localStorage.removeItem('jwt')
   }
-  // console.log("lay admin",user);
+  //make this restricitino in app.js
+  console.log(decrypted)
+  if(token === null) return <Navigate to='/' />
+  if(decrypted.user_type_id === 2) return <Navigate to='/exhibitor' />
+  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
+
 
   return (
     <div className='flex flex-col h-screen bg-gray-100'>

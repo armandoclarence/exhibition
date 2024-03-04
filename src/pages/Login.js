@@ -40,18 +40,16 @@ const Login = () => {
       console.error('Login failed:', error);
     }
   };
-    if(user.user_type_id === 1){
-      navigate('/admin')
-  }
-  if(user.user_type_id === 2){
-    navigate('/exhibitor')
-  }
-  if(user.user_type_id === 3){
-    navigate('/stall')
-  }
   useEffect(()=> {
+    if(user.user_type_id === 1){
+        navigate('/admin')
+    }else if(user.user_type_id === 2){
+      navigate('/exhibitor')
+    }else if(user.user_type_id === 3){
+      navigate('/stall')
+    }
     console.log(user)
-  },[user])
+  },[user,navigate])
   return (
     <div className='loginPage'>
       <div className='wave'></div>

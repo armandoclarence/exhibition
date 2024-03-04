@@ -37,7 +37,7 @@ function EditStall() {
       }
     };
     console.log('Updated data:', updatedData); // Log the data object
-    fetch(`http://localhost:5000/stall/${updatedData.user.id}`, {
+    fetch(`http://localhost:5000/stall/${updatedData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -63,6 +63,7 @@ function EditStall() {
       }
     });
   };
+  console.log(data)
   return (
     <>
       <FormStall handleSubmit={handleSubmit} handleChange={handleChange} stall={data} />

@@ -1,5 +1,5 @@
 import {LiaEdit, LiaPenSolid} from 'react-icons/lia'
-import {NavLink, Link, Outlet} from 'react-router-dom'
+import {NavLink, Link, Outlet, Navigate} from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode';
 import useLocalStorage from '../../util/useLocalStorage';
 import { createContext } from 'react';
@@ -7,12 +7,15 @@ import { createContext } from 'react';
 export const Exhibitor = createContext('')
 function LayoutExhibitor() {   
   const [token, setToken] = useLocalStorage('', 'jwt');
+
   const decrypted = jwtDecode(token);
   console.log("Decrypted in LayoutExhibitor" + decrypted);
-  console.log(token)
   const removeJWT = () => {
     window.localStorage.removeItem('jwt')
   }
+  if(token == null) return <Navigate to='/' />
+  else if(decrypted.user_type_id === 1) return <Navigate to='/admin' />
+  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
   console.log(token)
   return (
     <div className='flex flex-col h-full bg-gray-100'>

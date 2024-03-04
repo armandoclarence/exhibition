@@ -5,7 +5,7 @@ import {Exhibitor} from './LayoutExhibitor'
 function CreateStall() {
 
 const stall = useContext(Exhibitor)
-  const [data, setData] = useState('');
+const [dataMessage, setDataMessage] = useState('')
   const [form, setForm] = useState({
     stallName: '',
     stallDescription: '',
@@ -15,9 +15,11 @@ const stall = useContext(Exhibitor)
   });
   
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
+    setForm((prevForm)=>{
+      return {
+        ...prevForm,
+        [e.target.name]: e.target.value
+      }
     });
   }
 
@@ -31,18 +33,18 @@ const stall = useContext(Exhibitor)
       body: JSON.stringify({
         ...form,
         user: {
-          id: stall.id  // This is the id of the user associated with the stall
+          id: stall.userId  // This is the id of the user associated with the stall
         }
       })
     })
     .then(response => response.json())
-    .then(data => setData(data.responseMessage))
+    .then(data => setDataMessage(data.responseMessage))
     .catch(error => console.error('Error:', error));
-    window.alert(`${data}`)
+    window.alert(`${dataMessage}`)
   }
   return (
     <div>
-      <FormStall handleChange={handleChange} handleSubmit={handleSubmit}  />
+      <FormStall handleChange={handleChange} handleSubmit={handleSubmit} stall={form} />
     </div>
   )
 }
