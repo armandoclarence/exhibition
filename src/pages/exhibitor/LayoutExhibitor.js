@@ -8,15 +8,15 @@ export const Exhibitor = createContext('')
 function LayoutExhibitor() {   
   const [token, setToken] = useLocalStorage('', 'jwt');
 
-  const decrypted = jwtDecode(token);
+  console.log(token)
+  const decrypted = token ? jwtDecode(token): null;
+  if(decrypted == null) return <Navigate to='/' />
+  if(decrypted.user_type_id === 1) return <Navigate to='/admin' />
+  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
   console.log("Decrypted in LayoutExhibitor" + decrypted);
   const removeJWT = () => {
     window.localStorage.removeItem('jwt')
   }
-  if(token == null) return <Navigate to='/' />
-  else if(decrypted.user_type_id === 1) return <Navigate to='/admin' />
-  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
-  console.log(token)
   return (
     <div className='flex flex-col h-full bg-gray-100'>
       <header className='flex items-center justify-between p-6 bg-white border-b border-gray-200'>

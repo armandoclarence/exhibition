@@ -10,17 +10,17 @@ import { UserProvider } from '../UserContext';
 function LayoutAdmin() {
   const [token, setToken] = useLocalStorage('', 'jwt');
   console.log(token)
-  const decrypted = jwtDecode(token);
-  console.log("Decrypted in LayoutExhibitor" + decrypted);
+  const decrypted = token ? jwtDecode(token) : null;
+  console.log("Decrypted in LayoutAdmin" + decrypted);
   // const { user } = useContext(UserProvider);
+  if(decrypted == null) return <Navigate to='/' />
+  if(decrypted.user_type_id === 2) return <Navigate to='/exhibitor' />
+  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
   const removeJWT = () => {
     window.localStorage.removeItem('jwt')
   }
   //make this restricitino in app.js
   console.log(decrypted)
-  if(token === null) return <Navigate to='/' />
-  if(decrypted.user_type_id === 2) return <Navigate to='/exhibitor' />
-  else if(decrypted.user_type_id === 3) return <Navigate to='/stall/1' />
 
 
   return (
