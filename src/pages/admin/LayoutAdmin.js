@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {NavLink,Navigate, Link, Outlet} from 'react-router-dom'
 import Bending from '../../assets/img/Bending.svg'
 import Approved from '../../assets/img/Approved.svg'
 import '../../styles/admin/admin.css'
 import useLocalStorage from '../../util/useLocalStorage';
 import { jwtDecode } from 'jwt-decode';
-import { UserProvider } from '../UserContext';
+// import { UserProvider } from '../UserContext';
 
 function LayoutAdmin() {
   const [token, setToken] = useLocalStorage('', 'jwt');
@@ -52,7 +52,7 @@ function LayoutAdmin() {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <Outlet />  
     </div>
   )
 }

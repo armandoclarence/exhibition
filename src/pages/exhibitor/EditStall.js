@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import FormStall from './FormStall';
 import {Exhibitor} from './LayoutExhibitor'
+import {Navigate} from 'react-router-dom'
 
 function EditStall() {
   const stall = useContext(Exhibitor)
   const [data, setData] = useState({})
+  const [status, setStatus] = useState('')
   console.log(stall)
   useEffect(() => {
     const fetchStall = async() => {
@@ -54,10 +56,14 @@ function EditStall() {
       console.log('Success:', data);
       // Here you can handle the response. For example, you can set the state with the updated data
       setData(data);
+      alert('Updated data successfull')
+      setStatus('success')
     })
     .catch((error) => {
       console.error('Error:', error);
       // If there's a conflict, inform the user
+      alert('Update data failed')
+      setStatus('failed')
       if (error.message.includes('409')) {
         alert('Conflict occurred. Please try again.');
       }
@@ -67,6 +73,7 @@ function EditStall() {
   return (
     <>
       <FormStall handleSubmit={handleSubmit} handleChange={handleChange} stall={data} />
+      {status === 'success' && <Navigate to='/exhibitor/editStall'/>}
     </>
   );
 }

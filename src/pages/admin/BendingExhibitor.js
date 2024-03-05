@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useContext } from 'react';
+import React, { useEffect, useState  } from 'react';
 import Exhibitor from './Exhibitor.js';
 import { fetchBendingExhibitors } from './service/bendingService.js';
 
