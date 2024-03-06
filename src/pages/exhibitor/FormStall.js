@@ -1,7 +1,6 @@
 import React from 'react';
 
 function FormStall({handleSubmit, handleChange, stall}) {
-  console.log(stall)
   return (
     <form onSubmit={handleSubmit} className='h-full border-blue-50 flex flex-col text-black space-y-2 w-full mx-auto p-20'>
       <label htmlFor="stallName">Stall Name</label>

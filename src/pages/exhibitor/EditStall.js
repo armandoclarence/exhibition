@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import FormStall from './FormStall';
-import {Exhibitor} from './LayoutExhibitor'
 import {Navigate} from 'react-router-dom'
+import { UserContext } from '../UserProvider'
 
 function EditStall() {
-  const stall = useContext(Exhibitor)
+  const {decrypted : stall} = useContext(UserContext)
   const [data, setData] = useState({})
   const [status, setStatus] = useState('')
   console.log(stall)
@@ -69,7 +69,6 @@ function EditStall() {
       }
     });
   };
-  console.log(data)
   return (
     <>
       <FormStall handleSubmit={handleSubmit} handleChange={handleChange} stall={data} />

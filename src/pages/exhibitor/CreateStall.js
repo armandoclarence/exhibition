@@ -1,10 +1,9 @@
 import React, {useState,useContext} from 'react'
 import FormStall from './FormStall'
-import {Exhibitor} from './LayoutExhibitor'
+import {UserContext} from '../UserProvider'
 
 function CreateStall() {
-
-  const stall = useContext(Exhibitor)
+  const {decrypted : stall} = useContext(UserContext)
   const [form, setForm] = useState({
     stallName: '',
     stallDescription: '',
