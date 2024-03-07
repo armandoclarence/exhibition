@@ -1,0 +1,101 @@
+.loginPage {
+  position: relative;
+  background-image: 
+    linear-gradient(141.85deg, rgba(137, 149, 252, 0.82) 13.6%, #AE3BD7 51.54%, #D41EB7 78.35%);
+  height: 100vh;
+}
+
+.wave {
+  position: absolute;
+  background-image: url('../assets/img/login-wave.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 75%;
+  bottom: 0;
+}
+
+.sign-in {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  z-index: 1;
+  width: 50%;
+  right: 0;
+  background: #EEEEEE;
+  height: 100%;
+}
+
+.signForm {
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  justify-content: center;
+  font-weight: 400;
+  width: 70%;
+  color: #515151;
+}
+
+.signForm h1 {
+  margin-bottom: 50px;
+  font-size: 2.5em;
+}
+
+.signForm h1,.signForm > p > a {
+  color: #B03FD8;
+}
+
+#login > .login-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.signForm > button {
+  cursor: pointer;
+  width: 75%;
+  margin: 25px auto 0;
+}
+
+.login-input input:not([type="radio"]) {
+  width: 100%;
+  padding: 1.25em;
+  color: #515151;
+}
+
+.login-input > * + * {
+  margin-top: 25px;
+}
+
+.login-input input, .sign-in button {
+  background-color: #CECECE94;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+}
+
+.login-input .pass {
+  position: relative;
+}
+
+.login-input .pass > img {
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
+}
+
+.forgot-pass {
+  color: #B03FD8;
+  font-weight:500;
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.signForm button {
+  color:white;
+  background-image: linear-gradient(95.55deg, #9CA6FA 3%, #AB52DF 109.14%);
+}
+
+.signForm > p {
+  font-weight: 600;
+}
+

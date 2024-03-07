@@ -1,0 +1,28 @@
+.wave {
+  background-image: url('../assets/img/register-wave.png');
+  height: 100%;
+  background-size: cover;
+  width: 80%;
+}
+
+.username {
+  display: flex;
+  gap: 25px;
+}
+
+.type-acc {
+  display: flex;
+  margin-top: 28px;
+}
+
+.type-acc > *  {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.type-acc > * > input[type="radio"] {
+  width: 32px;
+  height: 28px;
+  accent-color: #B03FD8;
+}

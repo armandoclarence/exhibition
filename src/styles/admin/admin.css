@@ -1,0 +1,12 @@
+.active {
+  background-color: black;
+  color: white;
+}
+
+.active:hover {
+  filter: invert(100%);
+}
+
+.active > img {
+  filter:invert(100%);
+}
