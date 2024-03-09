@@ -1,11 +1,9 @@
 import React, {useState,useContext} from 'react'
 import FormStall from './FormStall'
-import {Exhibitor} from './LayoutExhibitor'
+import {UserContext} from '../UserProvider'
 
 function CreateStall() {
-
-const stall = useContext(Exhibitor)
-const [dataMessage, setDataMessage] = useState('')
+  const {decrypted : stall} = useContext(UserContext)
   const [form, setForm] = useState({
     stallName: '',
     stallDescription: '',
@@ -23,9 +21,8 @@ const [dataMessage, setDataMessage] = useState('')
     });
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch('http://localhost:5000/stall/add', {
+  const fetchCreateStall = async() => {
+    const createStall = await fetch('http://localhost:5000/stall/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,10 +34,13 @@ const [dataMessage, setDataMessage] = useState('')
         }
       })
     })
-    .then(response => response.json())
-    .then(data => setDataMessage(data.responseMessage))
-    .catch(error => console.error('Error:', error));
-    window.alert(`${dataMessage}`)
+    const response = await createStall.json()
+    alert(response.responseMessage)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchCreateStall()
   }
   return (
     <div>

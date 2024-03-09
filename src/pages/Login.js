@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import login from './loginService';
-import useLocalStorage from '../util/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage';
 import '../styles/login.css'
 import passwordHide from '../assets/img/password-hide.png'
 import { jwtDecode } from 'jwt-decode';
@@ -27,7 +27,7 @@ const Login = () => {
       const token = await login(email, password);
       setToken(token); 
       //this token is userDeatils
-      const user_1 =jwtDecode(token);
+      const user_1 = jwtDecode(token);
       setUser(user_1);
       //this user object need to available for all the things
       console.log('user:', user_1);
@@ -38,6 +38,7 @@ const Login = () => {
       
     } catch (error) {
       console.error('Login failed:', error);
+      alert('Email or Password invalid!')
     }
   };
   useEffect(()=> {

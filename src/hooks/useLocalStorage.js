@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function useLocalStorage(defaultValue, key){
 
-    const [value,SetValue] = useState(()=>{
+    const [value,setValue] = useState(()=>{
         const localStorageValue = window.localStorage.getItem(key);
 
         return localStorageValue !== null ? JSON.parse(localStorageValue) : defaultValue;
@@ -13,7 +13,7 @@ function useLocalStorage(defaultValue, key){
         window.localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
 
-    return [value, SetValue];
+    return [value, setValue];
 }
 
 export default useLocalStorage;

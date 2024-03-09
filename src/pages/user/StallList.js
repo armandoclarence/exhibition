@@ -31,16 +31,20 @@ function StallList() {
       <h2 className='text-2xl font-bold'>{stall?.stallName}</h2>
       <p className='text-gray-700'>{stall?.stallDescription}</p>
       <img style={{height:'250px'}} className='h-1/2 rounded-2xl' src={stall?.photoUrl} alt={stall?.stallName} />
-      <iframe
-        width='100%'
-        height='315'
-        className='aspect-video'
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title='YouTube video player'
-        frameBorder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      ></iframe>
+      {
+        videoId != null ?
+        <iframe
+          width='100%'
+          height='315'
+          className='aspect-video'
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title='YouTube video player'
+          frameBorder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        ></iframe>
+        : <p>{stall.videoUrl}</p>
+      }
       <div className="flex justify-between">
         <button className='text-blue-500 bg-zinc-900 rounded-xl p-2 *:hover:underline cursor-pointer'>
           <a href={stall?.brochureUrl}>View Brochure</a>

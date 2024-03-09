@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { Navigate } from 'react-router-dom'
 import '../styles/login.css'
 import '../styles/register.css'
 import passwordHide from '../assets/img/password-hide.png'
 import { registerUser } from './registerService.js';
 
 function Register() {
+  const signRef = useRef(null)
+  const [status,setStatus] = useState('')
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -38,14 +41,27 @@ function Register() {
       }
   };
 
+  const fetchRegisteredUser = async() =>{
+    const registeredUser = await registerUser(user) ?? null
+    if(registeredUser == null){
+      signRef.current.reset()
+      alert('Registration failed')
+      setStatus('failed')
+    }else {
+      alert('Registered Successfully!')
+      setStatus('success')
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    registerUser(user).then(data => console.log(data));
+
+    fetchRegisteredUser()
   };
 
   return (
     // ...
-    <form id='signup' className='signForm' onSubmit={handleSubmit}>
+    <form id='signup' className='signForm' ref={signRef} onSubmit={handleSubmit}>
       <h1>Sign Up</h1>
       <div className='login-input'>
         <div className='username'>
@@ -71,6 +87,7 @@ function Register() {
       </div>
       <button type='submit'>Sign Up</button>
       <p>Already have an account? <a href='/'>Login</a></p>
+      {status === 'success' && <Navigate to='/' />}
     </form>
     // ...
   )
