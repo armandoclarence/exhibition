@@ -11,7 +11,8 @@ import EditStall from './pages/exhibitor/EditStall'
 import LayoutUser from './pages/user/LayoutUser'
 import StallList from './pages/user/StallList';
 import { UserProvider } from './pages/UserProvider';
-import NotFounded from './pages/NotFounded'
+import NotFounded from './pages/NotFounded';
+import Chat from './pages/chat/Chat';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path=':id' element={<StallList />} />
           </Route>
           <Route path='*' element={<NotFounded />} />
+          <Route path='chat' element={<Chat />} /> 
         </Routes>
       </Router>
     </div>
