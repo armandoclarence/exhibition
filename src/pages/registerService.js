@@ -1,6 +1,6 @@
 // registerService.js
 export const registerUser = (user) => {
-    return fetch('http://localhost:5000/user/createuser', {
+    return fetch('http://localhost:5000/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

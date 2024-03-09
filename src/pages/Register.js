@@ -18,7 +18,6 @@ function Register() {
     });
     const togglePassword = (e) => {
       const prevSibling = e.target.previousElementSibling
-      console.log(e)
       if(prevSibling.type === 'password') prevSibling.type = 'text'
       else prevSibling.type = 'password'
     }
