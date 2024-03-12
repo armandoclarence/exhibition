@@ -7,7 +7,8 @@ const BendingExhibitor = () => {
   
     const [exhibitors, setExhibitors] = useState([]);
     useEffect(() => {
-        fetchBendingExhibitors().then(data => setExhibitors(data));
+        // fetchBendingExhibitors().then(data => console.log(data))
+        fetchBendingExhibitors().then(data => setExhibitors(data.results));
     }, []);
 
     return (
@@ -31,7 +32,7 @@ const BendingExhibitor = () => {
                     </thead>
                     <tbody className='bg-white'>
                         { exhibitors.map((exhibitor) => (
-                            <Exhibitor exhibitor={exhibitor} key={exhibitor.id}/>
+                            <Exhibitor exhibitor={exhibitor} key={exhibitor.userId}/>
                         ))}
                     </tbody>
                 </table>

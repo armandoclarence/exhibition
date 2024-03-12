@@ -35,6 +35,7 @@ function CreateStall() {
       })
     })
     const response = await createStall.json()
+    console.log(response)
     alert(response.responseMessage)
   }
 

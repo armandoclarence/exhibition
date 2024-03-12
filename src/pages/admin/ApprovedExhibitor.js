@@ -6,7 +6,7 @@ const ExhibitorList = () => {
     const [exhibitors, setExhibitors] = useState([]);
     
     useEffect(() => {
-        fetchApprovedExhibitors().then(data => setExhibitors(data));
+        fetchApprovedExhibitors().then(data => setExhibitors(data.results));
     }, []);
 
     return (
@@ -30,7 +30,7 @@ const ExhibitorList = () => {
                     </thead>
                     <tbody className='bg-white'>
                         { exhibitors.map((exhibitor) => (
-                            <Exhibitor exhibitor={exhibitor} key={exhibitor.id}/>
+                            <Exhibitor exhibitor={exhibitor} key={exhibitor.userId}/>
                         ))}
                     </tbody>
                 </table>

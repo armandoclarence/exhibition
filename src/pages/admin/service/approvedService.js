@@ -6,6 +6,9 @@ export const fetchApprovedExhibitors = () => {
             }
             return response.json();
         })
+        .then(data => {
+            return data
+        })
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);
         });
